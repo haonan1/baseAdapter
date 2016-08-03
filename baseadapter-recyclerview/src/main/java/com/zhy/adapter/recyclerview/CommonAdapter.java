@@ -85,5 +85,25 @@ public abstract class CommonAdapter<T> extends MultiItemTypeAdapter<T>
 
     protected abstract void convert(ViewHolder holder, T t, int position);
 
+    public void replaceAll(List<T> mList) {
+        mDatas.clear();
+        mDatas.addAll(mList);
+    }
 
+    public void addAll(List<T> mList) {
+        mDatas.addAll(mList);
+    }
+
+    public void addItem(T t) {
+        mDatas.add(t);
+    }
+
+
+    public void addItemToFirst(T t){
+        mDatas.add(0,t);
+    }
+
+    public void deleteItem(int position){
+        mDatas.remove(position);
+    }
 }
