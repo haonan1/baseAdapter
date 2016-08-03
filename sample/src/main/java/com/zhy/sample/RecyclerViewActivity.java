@@ -18,7 +18,7 @@ import com.zhy.adapter.recyclerview.CommonAdapter;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
 import com.zhy.adapter.recyclerview.wrapper.EmptyWrapper;
 import com.zhy.adapter.recyclerview.wrapper.HeaderAndFooterWrapper;
-import com.zhy.adapter.recyclerview.wrapper.LoadMoreWrapper;
+import com.zhy.adapter.recyclerview.wrapper.LoadmoreWrapper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +31,7 @@ public class RecyclerViewActivity extends AppCompatActivity
     private CommonAdapter<String> mAdapter;
     private HeaderAndFooterWrapper mHeaderAndFooterWrapper;
     private EmptyWrapper mEmptyWrapper;
-    private LoadMoreWrapper mLoadMoreWrapper;
+    private LoadmoreWrapper mLoadMoreWrapper;
 
 
     @Override
@@ -62,9 +62,9 @@ public class RecyclerViewActivity extends AppCompatActivity
 
 //        initEmptyView();
 
-        mLoadMoreWrapper = new LoadMoreWrapper(mHeaderAndFooterWrapper);
+        mLoadMoreWrapper = new LoadmoreWrapper(mHeaderAndFooterWrapper);
         mLoadMoreWrapper.setLoadMoreView(R.layout.default_loading);
-        mLoadMoreWrapper.setOnLoadMoreListener(new LoadMoreWrapper.OnLoadMoreListener()
+        mLoadMoreWrapper.setOnLoadMoreListener(new LoadmoreWrapper.OnLoadMoreListener()
         {
             @Override
             public void onLoadMoreRequested()

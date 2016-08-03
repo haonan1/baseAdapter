@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.zhy.adapter.recyclerview.CommonAdapter;
-import com.zhy.adapter.recyclerview.wrapper.LoadMoreWrapper;
+import com.zhy.adapter.recyclerview.wrapper.LoadmoreWrapper;
 import com.zhy.sample.adapter.rv.ChatAdapterForRv;
 import com.zhy.sample.bean.ChatMessage;
 
@@ -21,7 +21,7 @@ public class MultiItemRvActivity extends AppCompatActivity
 {
     private RecyclerView mRecyclerView;
 
-    private LoadMoreWrapper mLoadMoreWrapper;
+    private LoadmoreWrapper mLoadMoreWrapper;
     private List<ChatMessage> mDatas = new ArrayList<>();
 
 
@@ -39,9 +39,9 @@ public class MultiItemRvActivity extends AppCompatActivity
         mDatas.addAll(ChatMessage.MOCK_DATAS);
         ChatAdapterForRv adapter = new ChatAdapterForRv(this, mDatas);
 
-        mLoadMoreWrapper = new LoadMoreWrapper(adapter);
+        mLoadMoreWrapper = new LoadmoreWrapper(adapter);
         mLoadMoreWrapper.setLoadMoreView(LayoutInflater.from(this).inflate(R.layout.default_loading, mRecyclerView, false));
-        mLoadMoreWrapper.setOnLoadMoreListener(new LoadMoreWrapper.OnLoadMoreListener()
+        mLoadMoreWrapper.setOnLoadMoreListener(new LoadmoreWrapper.OnLoadMoreListener()
         {
             @Override
             public void onLoadMoreRequested()
