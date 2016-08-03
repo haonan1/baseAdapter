@@ -2,7 +2,6 @@ package com.zhy.adapter.recyclerview;
 
 import android.content.Context;
 import android.view.LayoutInflater;
-import android.view.View;
 
 import com.zhy.adapter.recyclerview.base.ItemViewDelegate;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
@@ -18,6 +17,41 @@ public abstract class CommonAdapter<T> extends MultiItemTypeAdapter<T>
     protected int mLayoutId;
     protected List<T> mDatas;
     protected LayoutInflater mInflater;
+
+
+
+    public CommonAdapter(Context context, final int layoutId)
+    {
+        super(context);
+        mContext = context;
+        mInflater = LayoutInflater.from(context);
+        mLayoutId = layoutId;
+        this.mDatas = super.mDatas;
+        addItemViewDelegate(new ItemViewDelegate<T>()
+        {
+            @Override
+            public int getItemViewLayoutId()
+            {
+                return layoutId;
+            }
+
+            @Override
+            public boolean isForViewType(T item, int position)
+            {
+                return true;
+            }
+
+            @Override
+            public void convert(ViewHolder holder, T t, int position)
+            {
+                CommonAdapter.this.convert(holder, t, position);
+            }
+        });
+    }
+
+
+
+
 
     public CommonAdapter(final Context context, final int layoutId, List<T> datas)
     {

@@ -9,6 +9,7 @@ import android.widget.BaseAdapter;
 import com.zhy.adapter.abslistview.base.ItemViewDelegate;
 import com.zhy.adapter.abslistview.base.ItemViewDelegateManager;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MultiItemTypeAdapter<T> extends BaseAdapter {
@@ -17,6 +18,12 @@ public class MultiItemTypeAdapter<T> extends BaseAdapter {
 
     private ItemViewDelegateManager mItemViewDelegateManager;
 
+
+    public MultiItemTypeAdapter(Context context){
+        this.mContext = context;
+        this.mDatas = new ArrayList<>();
+        mItemViewDelegateManager = new ItemViewDelegateManager();
+    }
 
     public MultiItemTypeAdapter(Context context, List<T> datas) {
         this.mContext = context;
